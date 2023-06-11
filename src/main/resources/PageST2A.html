@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="PageST2A.css">
+</head>
+<body>
+    <img src="img_la.jpg" alt="LA" style="width:100%">
+
+    <!-- NAVBAR START -->
+    <div class="navbar">
+        <a href="/">PageST1A</a>
+        <a href="PageMission.html">PageST1B</a>
+        <a href="PageST2A.html">PageST2A</a>
+        <a href="PageST2B.html" >PageST2B</a>
+        <a href="PageST3A.html">PageST3A</a>
+        <a href="PageST3B.html">PageST3B</a>
+    </div>
+    <!-- NAVBAR END -->
+
+    <div class="main-top">
+        <form action="/PageST2A.html" method="post">
+            <div class="header">
+                <h2>CHANGE IN CLIMATE BETWEEN</h2>
+            </div>
+            <div class="boxOne">
+                <input type="text" name="startYear" placeholder="YEAR ONE" default="0">
+            </div>
+            <h1>AND</h1>
+            <div class="boxTwo">
+                <input type="text" name="endYear" placeholder="YEAR TWO" default="0">
+            </div>
+            <div>
+                <h3>SORT BY</h3>
+                <input type="radio" name="sortOrder" value="asc"> Ascending
+                <input type="radio" name="sortOrder" value="desc" checked> Descending
+            </div>
+            <!--
+            <div>
+                <input type="radio" name="sortOption" value="percentage" checked> Percentage Change
+                <input type="radio" name="sortOption" value="population"> Population
+            </div>-->
+            <div>
+                <input type="submit" value="GO">
+            </div>
+        </form>
+        
+    </div>
+    <div class="main-body">
+        <h2>GLOBAL</h2>
+            <p th:text = "${globalPercentageChange}"></p>
+        <h2>BY COUNTRY</h2>
+        <table class = "percentage-change">
+            <tr>
+                <th>Country Name</th>
+                <th>Percentage Change</th>
+            </tr>
+            <tr th:each="percentageChange : ${percentageChanges}">
+                <td th:text = "${percentageChange.countryName}"></td>
+                <td th:text = "${percentageChange.pcntChange}"></td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

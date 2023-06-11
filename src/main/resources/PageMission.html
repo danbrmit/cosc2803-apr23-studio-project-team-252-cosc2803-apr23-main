@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<meta charset="UTF-8">
+<title>Page Title</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="PageMission.css">
+<style>
+</style>
+<script src=""></script>
+<body>
+
+<img src="img_la.jpg" alt="LA" style="width:100%">
+
+
+    <!-- NAVBAR START -->
+    <div class="navbar">
+        <a href="/">PageST1A</a>
+        <a href="PageMission.html">PageST1B</a>
+        <a href="PageST2A.html">PageST2A</a>
+        <a href="PageST2B.html" >PageST2B</a>
+        <a href="PageST3A.html">PageST3A</a>
+        <a href="PageST3B.html">PageST3B</a>
+    </div>
+    <!-- NAVBAR END -->
+
+<div class="main">
+ <h1><b>MAKING SUSTAINABILITY ACCESSIBLE FOR EVERYONE</b></h1>
+ <hr>
+ <h2 class = "titles">OUR MISSION</h2>
+ <img src = "png-transparent-earth-t-shirt-planet-earth-planet-earth-globe-world-earth-thumbnail.png" alt = "Earth">
+ 
+ <p>Our mission is to provide a user-friendly website that grants easy access to accurate and up-to-date climate statistics. Developed by a passionate team of two individuals, our primary focus is to prioritize both the ease of use and the accuracy of the data we present. We strive to create an intuitive user interface that enables users, ranging from climate activists to researchers, to effortlessly explore and understand vital climate information. By eliminating barriers such as technical complexity and convoluted data presentation, we aim to empower individuals with the knowledge they need to make informed decisions and take action towards a sustainable future.</p>
+ <h2 class = "titles">OUR CLIENTS</h2> 
+ <div class = persona-data>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Bio</th>
+        </tr>
+        <tr th:each="personas : ${listPersonas}">
+            <td class = "persona-name" th:text = "${personas.personaName}"></td>
+            <td class = "persona-bio" th:utext = "${personas.personaBio}"></td>
+        </tr>
+    </table>
+ </div>
+
+ <h2 class = "titles">CONTACT US</h2>
+ <div class = student-data>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+        </tr>
+        <tr th:each="students : ${listStudents}">
+            <td class = "persona-name" th:text = "${students.studentID}"></td>
+            <td class = "persona-bio" th:utext = "${students.studentName}"></td>
+        </tr>
+    </table>
+ </div>
+
+</div>
+
+
+</body>
+</html> 
