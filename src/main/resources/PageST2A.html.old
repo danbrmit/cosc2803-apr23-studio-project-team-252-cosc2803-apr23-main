@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<title>Page Title</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="PageST2A.css">
+<style>
+</style>
+<script src=""></script>
+<body>
+
+<img src="img_la.jpg" alt="LA" style="width:100%">
+
+<!-- NAVBAR START -->
+<div class="navbar">
+    <div class = "home" href="#home">LOGO</div>
+    <div class = "search" href="#search">SEARCH</div>
+    <a href="#news">NEWS</a>
+    <a href="#about">ABOUT</a>
+    <a href="#about">RESOURCES</a>
+</div>
+<!-- NAVBAR END -->
+
+
+<div class="main-top">
+    <!-- 4 divs: 1 for the text title, one for the first year, and another for the 2nd year, one for the thing inbetween, divs 2-4 are all inline block display -->
+    <form action="/PageST2A.html" method = "post">
+        <div class = "header">
+            <h2>CHANGE IN CLIMATE BETWEEN</h2>
+        </div>
+        <div class = "boxOne">
+            <input type = "text" name = "startYear" placeholder = "YEAR ONE">
+        </div>
+        <h1>AND</h1>
+        <div class = "boxTwo">
+            <input type = "text" name = "endYear" placeholder = "YEAR TWO">
+        </div>
+        <div>
+            <input type = "submit" value = "GO">
+        </div>
+    </form>
+</div>
+<div class = "main-body">
+    <div class = "data-row">
+        <div>
+            <ul>
+              <li th:each="value : ${avgTemp}" th:text="${value}"></li>
+            </ul>
+          </div>
+    </div>
+</div>
+
+
+
+</body>
+</html> 

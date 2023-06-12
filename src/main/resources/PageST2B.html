@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View by City</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+
+    <div class="pgtitle">Temperature Changes</div>
+    <div class="viewoption-container">
+        <p1 class="viewoption-links">View Global or Country</p1>
+        <b><p1 class="viewoption-links">View State or City</p1></b>
+    </div>
+    <div class="line2"></div>
+    <div class="flexbox-container-divider">
+        <div class="userchoice">
+            <p1 class="choiceheading">Enter information here <ion-icon name="help-circle-outline"></ion-icon></p1> 
+            <div class="choicemenu-container">
+                <form action="/PageST2B.html" method="post">
+                    <label for="countrydropdown" id="countrydropdown"><ion-icon name="location-outline"></ion-icon> Select Country
+                        <select name="countrydropdown">
+                            <option th:each="countrydropdown : ${countryNames}" th:value="${countrydropdown}" th:text="${countrydropdown}"></option>
+                        </select>
+                    </label>
+                    <label for="statedropdown" id="statedropdown"><ion-icon name="navigate-outline"></ion-icon> View by State or City
+                        <select name="statedropdown">
+                            <option value="City">City</option>
+                            <option value="State">State</option>
+                        </select>
+                    </label>
+                    <!-- <label for="raworprop" id="raworprop"><ion-icon name="options-outline"></ion-icon> Raw or Proportional Data
+                        <select name="raworprop">
+                            <option value="Raw">Raw</option>
+                            <option value="Proportional">Proportional</option>
+                        </select>
+                    </label> -->
+                    <label for="avgminmax" id="avgminmax"><ion-icon name="options-outline"></ion-icon> Type of Data 
+                        <select name="avgminmax">
+                            <option value="AvgTemp">Average</option>
+                            <option value="MinTemp">Minimum</option>
+                            <option value="MaxTemp">Maximum</option>
+                        </select>
+                    </label>
+                    <div class="year-container">
+                        <label for="startyear" class="label-menu"><ion-icon name="calendar-number-outline"></ion-icon> Year Range
+                            <input type="number" name="startyear" id="startyear">
+                        </label>
+                        <label for="endyear" class="label-menu">to
+                            <input type="number" name="endyear" id="endyear">
+                        </label>
+                    </div>
+                    
+                        
+                    <div class="button-container">
+                        <button type="button" class="button">
+                            <span class="button-icon">
+                                <ion-icon name="reload-outline"></ion-icon>
+                            </span>
+                            <span class="button-text">Reset</span>
+                            
+                        </button>
+                        <button type="submit" name="submit" class="button">
+                            <span class="button-icon">
+                                <ion-icon name="arrow-forward-outline"></ion-icon>
+                            </span>
+                            <span class="button-text">Submit</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="results">
+            <div class="top-increases-results-container">
+                <div class="top-increases-country-title"><ion-icon name="sunny-outline"></ion-icon>Top Increases</div>
+                <div class="top-increases-table-container">
+                    <table class="top-increases-table">
+                        <tr>   
+                            <th><ion-icon name="cellular-outline"></ion-icon> Ranking</th>
+                            <th><ion-icon name="location-outline"></ion-icon> City</th>
+                            <th><ion-icon name="analytics-outline"></ion-icon> Average</th>
+                            <th><ion-icon name="arrow-down-outline"></ion-icon> Minimum</th>
+                            <th><ion-icon name="arrow-up-outline"></ion-icon> Maximum</th>
+                        </tr>
+                        <tr>
+                            <td data-cell="ranking">1</td>
+                            <td data-cell="state-city">City</td>
+                            <td data-cell="avg-temp">20.1</td>
+                            <td data-cell="min-temp">21.4</td>
+                            <td data-cell="max-year">22.9</td>
+                        </tr>
+                        <tr>
+                            <td data-cell="ranking">2</td>
+                            <td data-cell="state-city">City</td>
+                            <td data-cell="avg-temp">20.3</td>
+                            <td data-cell="min-temp">21.4</td>
+                            <td data-cell="max-temp">22.9</td>
+                        </tr>
+                        <tr>
+                            <td data-cell="ranking">3</td>
+                            <td data-cell="state-city">City</td>
+                            <td data-cell="avg-temp">20.4</td>
+                            <td data-cell="min-temp" th:text="${noresult}">21.4</td>
+                            <td data-cell="max-temp" th:text="${countrycode}"></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="temp-changes-results-container">
+                <div class="temp-changes-title"><ion-icon name="stats-chart-outline"></ion-icon> Temperature Changes</div>
+                <div class="temp-changes-table-container">
+                    <table class="temp-changes-table">
+                        <tr>
+                            <th><ion-icon name="location-outline"></ion-icon> State/City</th>
+                            <th><ion-icon name="calendar-outline"></ion-icon> Start Year</th>
+                            <th><ion-icon name="calendar-number-outline"></ion-icon> End Year</th>
+                        </tr>
+                        <tr th:each="tempchange : ${tempchanges}">
+                            <td th:text="${tempchange.cityOrStateName}"></td>
+                            <td th:text="${tempchange.startYearTemp}"></td>
+                            <td th:text="${tempchange.endYearTemp}"></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

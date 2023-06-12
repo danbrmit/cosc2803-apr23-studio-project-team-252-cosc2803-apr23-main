@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Land and Ocean Temperatures</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <video autoplay loop muted plays-inline class="bgvid">
+            <source src="vid.mp4" type="video/mp4">
+        </video>
+        <h1>Understanding our planet, together.</h1>
+        <h2>With <span th:text="${yearsTempData}"></span> years of temperature data
+            and <span th:text ="${yearsPopData}"></span> years of population data, we can see how our planet has changed over time
+        </h2>
+        </h2>
+        
+        <div class="link-container">
+            <div class="link-mainpage">
+                <a href="PageST2B.html" class="linktext">View Temperatures by Region</a>
+            </div>
+            <div class="link-mainpage">
+                <a href="PageST2A.html" class="linktext">View Changes Over Extended Periods</a>
+            </div>
+            <!-- <div class="link-mainpage">
+                <a href="tempchangestate.html" class="linktext">View by Time Periods</a>
+            </div> -->
+            <!-- <div class="link-mainpage">
+                <a href="#" class="linktext">View by Time Periods</a>
+            </div> -->
+        </div>
+        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    </body>
+</html>
